@@ -2,6 +2,9 @@ import * as React from 'react';
 import { ActionType } from './ActionTypes';
 import { Joke } from '../types/Joke';
 
+// jose.nunes@orion.com
+//tiago.sa@orion.com
+
 type Props = {
   children: React.ReactNode;
 };
@@ -34,7 +37,6 @@ function reducer(state: PopularityState, action: AddToLikedJokesAction): Popular
         defaultList: payload.defaultList ? payload.defaultList : [],
       };
     case ActionType.ADD_TO_LIKED:
-      console.log('Adding', payload.joke);
       if (payload.joke == undefined) {
         throw new Error('Joke was undefined!');
       }
@@ -49,7 +51,6 @@ function reducer(state: PopularityState, action: AddToLikedJokesAction): Popular
       // Return updated state otherwise
       return { ...state, likedJokes: [...state.likedJokes, payload.joke] };
     case ActionType.REMOVE_FROM_LIKED:
-      console.log('Removing', payload.joke);
       return { ...state, likedJokes: [...state.likedJokes.filter((joke) => payload.joke?.id !== joke.id)] };
     default:
       return state;
