@@ -1,8 +1,11 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import PopularityContextWrapper from '../contexts/PopularityContext';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <PopularityContextWrapper>
+    <Component {...pageProps} />
+  </PopularityContextWrapper>
+);
 
-export default MyApp
+export default MyApp;
